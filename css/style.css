@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+
+
+* {
+	font-family: 'Montserrat', sans-serif;
+	box-sizing: border-box;
+	margin: 0;
+}
+
+body {
+	background-color: #181824;
+	transition: background-color 0.5s ease-in-out;
+
+}
+
+.parent {
+	background-image: url('../imgs/bg-desktop-dark.jpg');
+	background-size: 100% 300px;
+	background-repeat: no-repeat;
+	transition: background-image 0.5s ease-in-out;
+}
+
+.container .child {
+	width: 80%;
+}
+
+.child .head h1 {
+	letter-spacing: 5px;
+}
+
+.child .head img {
+	width: 30px;
+	height: 30px;
+}
+
+.input-group {
+	background-color: #25273c;
+	padding: 20px;
+	color: #fff;
+	border-radius: 5px;
+	transition: background-color 0.5s ease-in-out;
+}
+
+.child .input-group .input {
+	width: 80%;
+	background-color: #25273c;
+	color: #fff;
+	padding: 5px;
+	border: none;
+	transition: background-color 0.5s ease-in-out;
+}
+
+.child .input-group .input:focus {
+	outline: none;
+}
+
+.child .input-group .btn {
+	border-radius: 5px !important;
+}
+
+.child .input-group .btn:focus {
+	box-shadow: none;
+}
+
+.child .input-group .btn:active {
+	box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, .5);
+}
+
+.box {
+	min-height: 50px;
+}
+
+.delete-button:hover {
+	color: #e650d7;
+	cursor: pointer;
+}
+
+.box .content .input-group {
+	padding: 25px;
+	border-bottom: .5px solid rgba(110, 112, 133, .5);
+}
+
+.form-check-input {
+	border-radius: 50% !important;
+}
+
+.box .subject {
+	color: #418cfc;
+	padding: 10px 25px;
+	font-size: 13px;
+}
+
+.box .subject div:hover {
+	color: #e650d7;
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+/*change body background color*/
+.bg-color {
+	background-color: #f8f7f7;
+}
+
+/*change parent src img*/
+.bg-img-light {
+	background-image: url('../imgs/bg-desktop-light.jpg');
+}
+
+/*style for not found data*/
+.backdrop {
+	padding: 23px;
+	color: #fff;
+	border-radius: 5px;
+	background-color: rgba(230, 80, 215, 0.3);
+	backdrop-filter: blur(10px);
+}
+
+
+@media (max-width : 577px) {
+	.child {
+		width: 100%;
+	}
+
+	.input-group .input,
+	.input-group button {
+		width: 100% !important;
+	}
+}
