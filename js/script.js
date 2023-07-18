@@ -1,5 +1,4 @@
 let arrayList = [];
-let clearList = [];
 let checkList = [];
 let list = document.getElementById( "list-input" );
 let divBox = document.querySelector( ".content" );
@@ -23,7 +22,7 @@ function showAll ()
     divBox.innerHTML = '';
     if ( arrayList.length > 0 )
     {
-        arrayList.forEach( ( value , index) =>
+        arrayList.forEach( ( value, index ) =>
         {
             let isChecked = checkList.includes( value );
 
@@ -54,7 +53,6 @@ function showAll ()
                     }
                 }
             } );
-
             list.value = '';
             visibleSubject();
 
@@ -88,10 +86,10 @@ function showCompleteList ()
             let deleteButton = newElement.querySelector( '.delete-button' );
             deleteButton.addEventListener( 'click', () =>
             {
-                removeList( index );
+                removeList( index, value );
             } );
-
             list.value = '';
+
         } );
     }
     else divBox.innerHTML = `<div class = "backdrop">Nothing here !</div>`;
@@ -99,15 +97,16 @@ function showCompleteList ()
 }
 
 
-
-function removeList ( index )
+function removeList ( index, eleValue )
 {
-    // to prevent unexpected errors 
     if ( index >= 0 && index < checkList.length )
     {
-        clearList.push( arrayList.splice( index, 1 )[ 0 ] ); // remove and add to clearList
-        checkList.splice( index, 1 )[ 0 ];
+        // to get index of value in arrayList that like value in checklist 
+        let value = arrayList.indexOf( eleValue );
+        checkList.splice( index, 1 );
+        arrayList.splice( value, 1 );
         showCompleteList();
+        console.log( clearList );
     } else
     {
         console.error( `Index ${ index } is out of range` );
