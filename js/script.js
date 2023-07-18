@@ -23,9 +23,10 @@ function showAll ()
     divBox.innerHTML = '';
     if ( arrayList.length > 0 )
     {
-        arrayList.forEach( ( value ) =>
+        arrayList.forEach( ( value , index) =>
         {
             let isChecked = checkList.includes( value );
+
             let template = `
                 <div>${ value }</div>
                 <input class="check-button form-check-input" type="checkbox" ${ isChecked ? "checked" : "" }>`;
@@ -38,6 +39,7 @@ function showAll ()
                 newElement.classList.add( "text-dark" );
             }
             divBox.appendChild( newElement );
+
             let checkButton = newElement.querySelector( '.check-button' );
             checkButton.addEventListener( "change", () =>
             {
@@ -46,13 +48,13 @@ function showAll ()
                     checkList.push( value );
                 } else
                 {
-                    const index = checkList.indexOf( value );
                     if ( index > -1 )
                     {
                         checkList.splice( index, 1 );
                     }
                 }
             } );
+
             list.value = '';
             visibleSubject();
 
@@ -82,13 +84,14 @@ function showCompleteList ()
                 newElement.classList.add( "text-dark" );
             }
             divBox.appendChild( newElement );
+
             let deleteButton = newElement.querySelector( '.delete-button' );
             deleteButton.addEventListener( 'click', () =>
             {
                 removeList( index );
             } );
-            list.value = '';
 
+            list.value = '';
         } );
     }
     else divBox.innerHTML = `<div class = "backdrop">Nothing here !</div>`;
