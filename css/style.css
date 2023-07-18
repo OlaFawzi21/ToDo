@@ -115,11 +115,14 @@ body {
 	backdrop-filter: blur(10px);
 }
 
+@media (max-width : 992px) {
 
-@media (max-width : 577px) {
-	.child {
+	.container .child {
 		width: 100%;
 	}
+}
+
+@media (max-width : 577px) {
 
 	.input-group .input,
 	.input-group button {
