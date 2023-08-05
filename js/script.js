@@ -3,7 +3,11 @@ let checkList = JSON.parse( localStorage.getItem( "tasksComplete" ) ) || [];
 let list = document.getElementById( "list-input" );
 let divBox = document.querySelector( ".content" );
 
-window.onload = list.focus();
+window.onload = function ()
+{
+    list.focus();
+    showAll();
+};
 
 function addList ( event )
 {
@@ -52,6 +56,8 @@ function showAll ()
                     if ( index > -1 )
                     {
                         checkList.splice( index, 1 );
+                        localStorage.setItem( "tasksComplete", JSON.stringify( checkList ) );
+
                     }
                 }
             } );
@@ -110,7 +116,6 @@ function removeList ( index, eleValue )
         localStorage.setItem( "tasks", JSON.stringify( arrayList ) );
         localStorage.setItem( "tasksComplete", JSON.stringify( checkList ) );
         showCompleteList();
-        console.log( clearList );
     } else
     {
         console.error( `Index ${ index } is out of range` );
