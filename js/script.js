@@ -1,5 +1,5 @@
-let arrayList = [];
-let checkList = [];
+let arrayList = JSON.parse( localStorage.getItem( "tasks" ) ) || [];
+let checkList = JSON.parse( localStorage.getItem( "tasksComplete" ) ) || [];
 let list = document.getElementById( "list-input" );
 let divBox = document.querySelector( ".content" );
 
@@ -11,6 +11,7 @@ function addList ( event )
     if ( list.value != '' )
     {
         arrayList.push( list.value );
+        localStorage.setItem( "tasks", JSON.stringify( arrayList ) );
         showAll();
     }
 
@@ -45,6 +46,7 @@ function showAll ()
                 if ( checkButton.checked )
                 {
                     checkList.push( value );
+                    localStorage.setItem( "tasksComplete", JSON.stringify( checkList ) );
                 } else
                 {
                     if ( index > -1 )
@@ -105,6 +107,8 @@ function removeList ( index, eleValue )
         let value = arrayList.indexOf( eleValue );
         checkList.splice( index, 1 );
         arrayList.splice( value, 1 );
+        localStorage.setItem( "tasks", JSON.stringify( arrayList ) );
+        localStorage.setItem( "tasksComplete", JSON.stringify( checkList ) );
         showCompleteList();
         console.log( clearList );
     } else
